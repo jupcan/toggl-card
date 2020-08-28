@@ -1,4 +1,5 @@
 # Toggl-card
+[![uclm](https://img.shields.io/badge/personal-project-red.svg?&longCache=true&colorA=27a79a&colorB=555555&style=for-the-badge)](http://www.juanperea.me)  
 Toggl Backend Unattended Programming Test
 > REST API to handle decks and cards to be used in any game like Poker and Blackjack.
 
@@ -15,11 +16,11 @@ get      get all dependencies and install them
 doc      generate documentation from code commets
 ```
 
-Dependencies are listed in the go module and can be installed running **make get** if desired. Mainly 3 of them have been used:
+Dependencies are listed in the go module and can be installed running **make get**. Mainly 3 of them have been used:
 
-1. [github.com/google/uuid](github.com/google/uuid) - to create UUIDs that unequivocally represent decks
-2. [github.com/gorilla/mux](github.com/google/uuid) - to implement a router and dispatcher for matching incoming requests to their respective handler
-3. [github.com/stretchr/testify](github.com/google/uuid) - to make easier the tests development by the use of common assertions functions
+1. [github.com/google/uuid](https://github.com/google/uuid) - to create UUIDs that unequivocally represent decks
+2. [github.com/gorilla/mux](https://github.com/google/uuid) - to implement a router and dispatcher for matching incoming requests to their handler
+3. [github.com/stretchr/testify](https://github.com/google/uuid) - to make easier the tests development by the use of common assertions functions
 
 Use **make all** to run all tests, see the results, build de api binary file and execute it. The router will be listening for requests in localhost 8080 port by default.
 
