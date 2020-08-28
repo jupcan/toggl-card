@@ -3,7 +3,7 @@
 Toggl Backend Unattended Programming Test
 > REST API to handle decks and cards to be used in any game like Poker and Blackjack.
 
->![toggl-banner](doc/banner.jpg)
+![toggl-banner](doc/banner.jpg)
 
 ## Installation
 Assigment developed using **Go**. A simple makefile is provided to ease, as its help parameter states, some tasks:
