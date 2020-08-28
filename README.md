@@ -1,9 +1,7 @@
 # [Toggl-card](/doc/Toggl_Backend_Unattended_Programming_Test.pdf)
 [![uclm](https://img.shields.io/badge/personal-project-red.svg?&longCache=true&colorA=27a79a&colorB=555555&style=for-the-badge)](http://www.juanperea.me)  
-Toggl Backend Unattended Programming Test
-> REST API to handle decks and cards to be used in any game like Poker and Blackjack.
-
 ![toggl-banner](doc/banner.jpg)
+> REST API to handle decks and cards to be used in any game like Poker and Blackjack.
 
 ## Installation
 Assigment developed using **Go**. A simple makefile is provided to ease, as its help parameter states, some tasks:
