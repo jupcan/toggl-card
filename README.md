@@ -1,7 +1,9 @@
-# Toggl-card
+# [Toggl-card](/doc/Toggl_Backend_Unattended_Programming_Test.pdf)
 [![uclm](https://img.shields.io/badge/personal-project-red.svg?&longCache=true&colorA=27a79a&colorB=555555&style=for-the-badge)](http://www.juanperea.me)  
 Toggl Backend Unattended Programming Test
 > REST API to handle decks and cards to be used in any game like Poker and Blackjack.
+
+>![toggl-banner](doc/banner.jpg)
 
 ## Installation
 Assigment developed using **Go**. A simple makefile is provided to ease, as its help parameter states, some tasks:
@@ -123,7 +125,7 @@ The are 3 different functionalities implemented:
 
 Some considerations regarging the development of the REST API.
 
-- Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **deck** and **card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*.
+- Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **deck** and **card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*
 - Have implemented Fisher–Yates shuffle algorithm to randomize a deck in O(n) time.
 - In main init function, I have set rand seed to do it only once and not in every shuffle iteration.  
 - I decided to use **maps** as the data strcuture for available card values and suits so that its sorting is easier than if using a slice of strings. The **cardCodes** map representing each possible card by its code could also help to qucikly find a player with a specific card, something used to start some card games.
