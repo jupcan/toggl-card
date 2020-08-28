@@ -17,11 +17,11 @@ doc      generate documentation from code commets
 
 Dependencies are listed in the go module and can be installed running **make get** if desired. Mainly 3 of them have been used:
 
-1. github.com/google/uuid - to create UUIDs that unequivocally represent decks
-2. github.com/gorilla/mux - to implement a router and dispatcher for matching incoming requests to their respective handler
-3. github.com/stretchr/testify - to make easier the tests development by the use of common assertions functions
+1. [github.com/google/uuid](github.com/google/uuid) - to create UUIDs that unequivocally represent decks
+2. [github.com/gorilla/mux](github.com/google/uuid) - to implement a router and dispatcher for matching incoming requests to their respective handler
+3. [github.com/stretchr/testify](github.com/google/uuid) - to make easier the tests development by the use of common assertions functions
 
-Use **make all** to run all tests, see the results, build de api binary file and execute it. The router will be listening for requests in the port 8080 by default.
+Use **make all** to run all tests, see the results, build de api binary file and execute it. The router will be listening for requests in localhost 8080 port by default.
 
 ## Usage
 
@@ -29,8 +29,8 @@ The are 3 different functionalities implemented:
 
 **1. Create Deck (POST)** -  creates a new standard 52-card French playing cards deck. It includes all thirteen ranks in each of the four suits: clubs :clubs:, diamonds :diamonds:, hearts :hearts: and spades :spades: and allows the following options to the request:
 
-- to be *shuffled* or not — by default the deck is sequential: A spades, 2-spades, 3-spades... followed by diamonds, clubs, then hearts. If <span style="background-color: #D9D9D9">?shuffle=true</span> is provided, the deck created will be randomly shuffled in request execution time.
-- to be *full* or *partial* — by default as stated above, it returns the standard 52 cards, otherwise the request would accept the wanted cards like this example: <span style="background-color: #D9D9D9">?cards=AS,KD,AC,2C,KH</span> (ACE of SPADES, KING of DIAMONDS, ACE of CLUBS...)
+- to be *shuffled* or not — by default the deck is sequential: A spades, 2-spades, 3-spades... followed by diamonds, clubs, then hearts. If <span style="background-color: #D9D9D9">?shuffle=true</span> is provided, the deck created will be randomly shuffled in execution time.
+- to be *full* or *partial* — by default as stated above, it returns the standard 52 cards, otherwise the request would accept the wanted cards like this example: <span style="background-color: #D9D9D9">?cards=AS,KD,AC,2C,KH</span> (ACE of SPADES, KING of DIAMONDS...)
 
 ```
 /deck/create
@@ -65,7 +65,7 @@ The are 3 different functionalities implemented:
 }
 ```
 
-**2. Open Deck (GET)** - returns a given deck by its UUID, which must be passed over and returning an error if the deck does not exists. The method opens the deck by listing all its properties and cards. Example of request and response below.
+**2. Open Deck (GET)** - returns a given deck by its UUID, which must be passed over and returning an error if the deck does not exists. The method opens the deck by listing all its properties and cards. Example of request and response:
 
 ```
 /deck?uuid=<uuid>
@@ -95,10 +95,10 @@ The are 3 different functionalities implemented:
     ]
 }
 ```
-**3. Draw Card (GET)** - draws a card(s) of a given Deck. If the deck is not passed over or invalid it returns an error. A count parameter needs to be provided to define how many cards to draw.
+**3. Draw Card (GET)** - draws a card(s) of a given Deck. If the deck is not passed over or invalid it returns an error. A count parameter needs to be provided to define how many cards to draw and it should be grater than 0. 
 
 ```
-/deck/<uuid>/draw?count=2
+/deck/<uuid>/draw?count=<int>
 /deck/b0c4147e-17dd-40d5-b3d2-4714fc20434a/draw?count=2
 ```
 ```json
@@ -122,9 +122,9 @@ The are 3 different functionalities implemented:
 
 Some considerations regarging the development of the REST API.
 
-- Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **Deck** and **Card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*.
+- Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **deck** and **card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*.
 - Have implemented Fisher–Yates shuffle algorithm to randomize a deck in O(n) time.
 - In main init function, I have set rand seed to do it only once and not in every shuffle iteration.  
-- To do not work outside the required scope of the assigment have not implemented persistence, thus a slice is used to store all created decks so when the execution stops all of them are lost. 
 - I decided to use **maps** as the data strcuture for available card values and suits so that its sorting is easier than if using a slice of strings. The **cardCodes** map representing each possible card by its code could also help to qucikly find a player with a specific card, something used to start some card games.
+- To do not work outside the required scope of the assigment have not implemented persistence, thus a slice is used to store all created decks so when the execution stops all of them are lost. 
 - 0 is the value used for each suit 10th card to represent it in a two-digit code as the other ones and not to be confused with the ace, usually known as 1.
