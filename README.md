@@ -126,8 +126,8 @@ The are 3 different functionalities implemented:
 Some considerations regarging the development of the REST API.
 
 - Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **deck** and **card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*
-- Have implemented Fisher–Yates shuffle algorithm to randomize a deck in O(n) time.
-- In main init function, I have set rand seed to do it only once and not in every shuffle iteration.  
-- I decided to use **maps** as the data strcuture for available card values and suits so that its sorting is easier than if using a slice of strings. The **cardCodes** map representing each possible card by its code could also help to qucikly find a player with a specific card, something used to start some card games.
-- To do not work outside the required scope of the assigment have not implemented persistence, thus a slice is used to store all created decks so when the execution stops all of them are lost. 
-- 0 is the value used for each suit 10th card to represent it in a two-digit code as the other ones and not to be confused with the ace, usually known as 1.
+- Have implemented Fisher–Yates shuffle algorithm to randomize a deck in O(n) time
+- In main init function, I have set rand seed to do it only once and not in every shuffle iteration
+- I decided to use **maps** as the data strcuture for available card values and suits so that its sorting is easier than if using a slice of strings. The **cardCodes** map representing each possible card by its code could also help to qucikly find a player with a specific card, something used to start some card games
+- To do not work outside the required scope of the assigment have not implemented persistence, thus a slice is used to store all created decks so when the execution stops all of them are lost 
+- 0 is the value used for each suit 10th card to represent it in a two-digit code as the other ones and not to be confused with the ace, usually known as 1
