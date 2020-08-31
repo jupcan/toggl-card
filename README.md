@@ -122,7 +122,7 @@ The are 3 different functionalities implemented:
 
 ## Information
 
-Some considerations regarging the development of the REST API.
+Some considerations regarding the development of the REST API.
 
 - Despite not beeing a big project nor having too much files, have decided to use a proper directory structure to organise all the source code and tests as if was going to grow in the future. Same reasoning when thinking of the creation of **deck** and **card** packages, not a must and could have implemented all in a main one but thought it is more organised this way. For example object creation calls are more idiomatic — *deck.New()* or *card.New()* — and follow [effective Go](https://golang.org/doc/effective_go.html) rather than *NewCard()* or *NewDeck()*
 - Have implemented Fisher–Yates shuffle algorithm to randomize a deck in O(n) time
