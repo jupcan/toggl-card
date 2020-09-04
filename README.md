@@ -97,7 +97,7 @@ The are 3 different functionalities implemented:
     ]
 }
 ```
-**3. Draw Card (GET)** - draws a card(s) of a given Deck. If the deck is not passed over or invalid it returns an error. A count parameter needs to be provided to define how many cards to draw and it should be grater than 0. 
+**3. Draw Card (GET)** - draws a card(s) of a given Deck. If the deck is not passed over or invalid it returns an error. A count parameter needs to be provided to define how many cards to draw and it should be greater than 0. 
 
 ```
 /deck/<uuid>/draw?count=<int>
