@@ -23,7 +23,7 @@ Dependencies are listed in the go module and can be installed running **make get
 2. [github.com/gorilla/mux](https://github.com/google/uuid) - to implement a router and dispatcher for matching incoming requests to their handler
 3. [github.com/stretchr/testify](https://github.com/google/uuid) - to make easier the tests development by the use of common assertions functions
 
-Use **make all** to run all tests, see the results, build de api binary file and execute it. The router will be listening for requests in localhost 8080 port by default. Test-driven development (TDD) was applied.
+Use **make all** to run all tests, see the results, build de api binary file and execute it. The router will be listening for requests in localhost 8080 port by default. Test-driven development (TDD) methodology was applied in the whole process.
 
 ## Usage
 
